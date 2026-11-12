@@ -1,0 +1,309 @@
+:root {
+  --bg: #f4f6f9;
+  --surface: #ffffff;
+  --border: #dfe4ec;
+  --text: #1c2430;
+  --muted: #64708a;
+  --accent: #0d7a8c;
+  --accent-dark: #0a5f6e;
+  --accent-soft: #e3f2f4;
+  --danger: #b23b3b;
+  --danger-soft: #fbeaea;
+  --ok: #1e7d46;
+  --ok-soft: #e7f5ec;
+  --radius: 10px;
+  --shadow: 0 1px 3px rgb(16 24 40 / 0.07), 0 4px 14px rgb(16 24 40 / 0.05);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.page-head h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  letter-spacing: -0.02em;
+  color: var(--accent-dark);
+}
+
+.page-head p {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+}
+
+.page-foot {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ------------------------------------------------------------------ panels */
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.panel-head h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+/* ----------------------------------------------------------------- inputs */
+
+input {
+  font: inherit;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fbfcfe;
+  color: var(--text);
+  min-width: 0;
+}
+
+input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 0;
+  border-color: var(--accent);
+}
+
+.filter {
+  max-width: 220px;
+}
+
+.row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.row input {
+  flex: 1 1 200px;
+}
+
+.row--end {
+  justify-content: flex-end;
+}
+
+/* ---------------------------------------------------------------- buttons */
+
+.btn {
+  font: inherit;
+  font-weight: 600;
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--accent-dark);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--accent-dark);
+  border-color: var(--border);
+}
+
+.btn--ghost:hover:not(:disabled) {
+  background: var(--accent-soft);
+}
+
+.btn--danger {
+  background: transparent;
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+.btn--danger:hover:not(:disabled) {
+  background: var(--danger-soft);
+}
+
+.btn--sm {
+  padding: 0.35rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+/* ----------------------------------------------------------------- states */
+
+.notice {
+  margin: 0;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.92rem;
+}
+
+.notice--ok {
+  background: var(--ok-soft);
+  color: var(--ok);
+}
+
+.notice--err {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.empty {
+  margin: 0;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.empty--err {
+  color: var(--danger);
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.hint code {
+  background: var(--bg);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+/* ------------------------------------------------------------------- pills */
+
+.pill {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pill--ok {
+  background: var(--ok-soft);
+  color: var(--ok);
+}
+
+.pill--warn {
+  background: #fdf3e3;
+  color: #a2650f;
+}
+
+.pill--muted {
+  background: var(--bg);
+  color: var(--muted);
+}
+
+/* -------------------------------------------------------------- slot list */
+
+.slot-list,
+.booking-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.slot-list > li,
+.booking-list > li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fbfcfe;
+}
+
+.slot-list > li.slot--taken {
+  opacity: 0.6;
+}
+
+.slot-time {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+/* ------------------------------------------------------------ booking form */
+
+.booking-form {
+  flex-basis: 100%;
+  border-top: 1px dashed var(--border);
+  padding-top: 0.75rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.booking-form .fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.booking-form label {
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.booking-form input {
+  font-weight: 400;
+  color: var(--text);
+}
+
+.booking--cancelled {
+  opacity: 0.55;
+}
+
+@media (max-width: 540px) {
+  .booking-form .fields {
+    grid-template-columns: 1fr;
+  }
+}
